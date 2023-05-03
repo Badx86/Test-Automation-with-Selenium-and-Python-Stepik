@@ -1,6 +1,4 @@
-import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+from selenium_utils import webdriver, By, time
 import math
 
 link = "https://suninjuly.github.io/math.html"

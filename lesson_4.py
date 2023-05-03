@@ -1,6 +1,4 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-import time
+from selenium_utils import webdriver, By, time
 
 link = "http://suninjuly.github.io/huge_form.html"
 try:

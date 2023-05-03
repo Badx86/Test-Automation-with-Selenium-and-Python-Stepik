@@ -1,7 +1,6 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+from selenium_utils import webdriver, By, time
 import math
-import time
+
 
 link = "http://suninjuly.github.io/find_link_text"
 
