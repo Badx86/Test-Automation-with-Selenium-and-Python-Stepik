@@ -1,17 +1,16 @@
 from selenium_utils import webdriver, By, time
 import math
 
-link = "http://suninjuly.github.io/alert_accept.html"
+link = "http://suninjuly.github.io/redirect_accept.html"
 
 try:
     browser = webdriver.Chrome()
     browser.get(link)
 
-    button_click = browser.find_element(By.CSS_SELECTOR, "button[type='submit']")
-    button_click.click()
-    # alert accept
-    confirm = browser.switch_to.alert
-    confirm.accept()
+    magic_button = browser.find_element(By.CSS_SELECTOR, "button[type='submit']")
+    magic_button.click()
+    # switch to new tab
+    browser.switch_to.window(browser.window_handles[1])
 
     x = int(browser.find_element(By.CSS_SELECTOR, "#input_value").text)
     y = math.log(abs(12*math.sin(x)))
