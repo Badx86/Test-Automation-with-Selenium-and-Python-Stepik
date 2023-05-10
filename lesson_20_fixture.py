@@ -52,7 +52,7 @@ class TestExample:
             try_again_btn = browser.find_element(By.CSS_SELECTOR, "button.again-btn")
             try_again_btn.click()
         except NoSuchElementException:
-            print('Кнопка "Решить снова" отсутствует')
+            print("'Solve Again' button is missing")
         finally:
             time.sleep(5)
             input_field = browser.find_element(By.TAG_NAME, "textarea")
