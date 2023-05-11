@@ -10,6 +10,7 @@ def test_guest_can_go_to_login_page(browser):
     page.open()
     # выполняем метод страницы — переходим на страницу логина
     page.go_to_login_page()
+    page.should_be_login_link()
 
 
 
