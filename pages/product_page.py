@@ -1,7 +1,4 @@
-import math
-from selenium.common import NoAlertPresentException
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
 
 
@@ -11,7 +8,7 @@ class ProductPage(BasePage):
         add_to_basket_btn = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BTN)
         add_to_basket_btn.click()
 
-    def should_be_present_msg(self):
+    def should_be_success_msg(self):
         assert self.is_element_present(*ProductPageLocators.SUCCESS_MSG), "Success message is not present"
 
     def should_be_basket_total(self):
