@@ -1,5 +1,5 @@
 from itertools import product
-
+from selenium.webdriver.common.by import By
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
@@ -30,3 +30,12 @@ class ProductPage(BasePage):
         assert success_message == expected_message, "Unexpected success message: {}".format(success_message)
         product_name = success_message.split(" has been added to your basket.")[0]
         return product_name
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(
+            *ProductPageLocators.SUCCESS_MSG), "Success message is presented, but should not be"
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(
+            *ProductPageLocators.SUCCESS_MSG), "Success message should disappear, but it is still present"
+
