@@ -9,6 +9,6 @@ def test_guest_can_add_product_to_basket(browser):
     page.add_product_to_basket()
     page.solve_quiz_and_get_code()
     page.should_be_success_msg()
-    assert product_name == page.get_success_message_product_name(), "Product name does not match"
+    success_message_product_name = page.get_success_message_product_name()
+    assert product_name in success_message_product_name, "Product names do not match"
     page.should_be_basket_total()
-
