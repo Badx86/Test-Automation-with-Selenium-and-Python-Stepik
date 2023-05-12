@@ -26,5 +26,7 @@ class ProductPage(BasePage):
 
     def get_success_message_product_name(self):
         success_message = self.browser.find_element(*ProductPageLocators.SUCCESS_MSG).text
+        expected_message = "Coders at Work has been added to your basket."
+        assert success_message == expected_message, "Unexpected success message: {}".format(success_message)
         product_name = success_message.split(" has been added to your basket.")[0]
         return product_name
