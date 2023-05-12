@@ -18,12 +18,13 @@ class ProductPage(BasePage):
 
     def get_product_name(self):
         product_name_element = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
-        return product_name_element
+        return product_name_element.text
 
     def get_product_price(self):
-        product_price_element = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
+        product_price_element = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text.strip()
         return product_price_element
 
     def get_success_message_product_name(self):
-        success_message_element = self.browser.find_element(*ProductPageLocators.SUCCESS_MSG)
-        return success_message_element.text.strip()
+        success_message = self.browser.find_element(*ProductPageLocators.SUCCESS_MSG).text
+        product_name = success_message.split(" has been added to your basket.")[0]
+        return product_name
