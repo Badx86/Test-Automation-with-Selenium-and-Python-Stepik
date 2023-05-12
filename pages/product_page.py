@@ -1,3 +1,5 @@
+from itertools import product
+
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
@@ -14,4 +16,14 @@ class ProductPage(BasePage):
     def should_be_basket_total(self):
         assert self.is_element_present(*ProductPageLocators.BASKET_TOTAL_MSG), "Basket total message is not present"
 
+    def get_product_name(self):
+        product_name_element = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
+        return product_name_element
 
+    def get_product_price(self):
+        product_price_element = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
+        return product_price_element
+
+    def get_success_message_product_name(self):
+        success_message_element = self.browser.find_element(*ProductPageLocators.SUCCESS_MSG)
+        return success_message_element.text.strip()
