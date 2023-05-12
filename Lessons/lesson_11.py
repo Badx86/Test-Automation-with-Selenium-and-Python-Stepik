@@ -17,7 +17,7 @@ try:
     email.send_keys("qwerty@mail.com")
 
     current_dir = os.path.abspath(os.path.dirname(__file__))
-    file_name = "TEST_SHIT.txt"
+    file_name = "../TEST_SHIT.txt"
     file_path = os.path.join(current_dir, file_name)
     file_input = browser.find_element(By.ID, "file")
     file_input.send_keys(file_path)
