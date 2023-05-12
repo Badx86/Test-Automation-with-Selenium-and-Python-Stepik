@@ -8,3 +8,9 @@ class MainPageLocators():
 class LoginPageLocators():
     LOGIN_SUBMIT = (By.CSS_SELECTOR, "button[value='Log In']")
     REGISTRATION_SUBMIT = (By.CSS_SELECTOR, "button[value='Register']")
+
+
+class ProductPageLocators():
+    ADD_TO_BASKET_BTN = (By.CSS_SELECTOR, "button:nth - child(3)")
+    SUCCESS_MSG = (By.CSS_SELECTOR, ".alert-success:nth-child(1)")
+    BASKET_TOTAL_MSG = (By.CSS_SELECTOR, ".alert-info p strong")
