@@ -1,6 +1,7 @@
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 import pytest
+from pages.product_page import ProductPage
 
 
 def pytest_addoption(parser):
@@ -21,3 +22,10 @@ def browser(request):
     yield browser
     browser.quit()
 
+
+@pytest.fixture(scope="function")
+def product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+    page = ProductPage(browser, link)
+    page.open()
+    return page
