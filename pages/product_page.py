@@ -1,7 +1,8 @@
 from itertools import product
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
-from .locators import ProductPageLocators
+from .locators import ProductPageLocators, BasketPageLocators
+from .basket_page import BasketPage
 
 
 class ProductPage(BasePage):
@@ -39,3 +40,7 @@ class ProductPage(BasePage):
         assert self.is_disappeared(
             *ProductPageLocators.SUCCESS_MSG), "Success message should disappear, but it is still present"
 
+    def go_to_basket_page(self):
+        basket_link = self.browser.find_element(*BasketPageLocators.BASKET_LINK)
+        basket_link.click()
+        return BasketPage(self.browser, self.browser.current_url)
