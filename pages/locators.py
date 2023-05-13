@@ -25,5 +25,5 @@ class BasePageLocators():
 
 class BasketPageLocators():
     BASKET_LINK = (By.CSS_SELECTOR, ".basket-mini a")
-    EMPTY_BASKET_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
+    EMPTY_BASKET_MSG = (By.CSS_SELECTOR, "#content_inner p")
     BASKET_ITEMS = (By.CSS_SELECTOR, ".basket-items")
