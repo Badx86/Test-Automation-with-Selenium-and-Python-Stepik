@@ -2,7 +2,6 @@ import pytest
 from pages.main_page import MainPage
 from pages.basket_page import BasketPage
 from pages.product_page import ProductPage
-# pytest -v --tb=line --language=en test_main_page.py
 
 
 @pytest.mark.login_guest
@@ -44,6 +43,4 @@ def test_guest_can_add_product_to_basket(browser):
     page.should_be_product_name_in_success_message()
     page.should_be_basket_total()
     page.should_be_product_price_in_basket_total()
-
-
 
