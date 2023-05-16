@@ -1,6 +1,8 @@
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 import pytest
+import os
+import time
 
 
 def pytest_addoption(parser):
@@ -20,3 +22,13 @@ def browser(request):
     browser.maximize_window()
     yield browser
     browser.quit()
+
+
+@pytest.hookimpl(tryfirst=True)
+def pytest_runtest_makereport(item, call):
+    # Делаем скриншот, если тест падает
+    if call.when == 'call' and call.excinfo is not None:
+        timestamp = time.strftime('%Y-%m-%d_%H-%M-%S')
+        test_name = item.nodeid.replace("::", "_") + "_" + timestamp
+        browser = item.funcargs['browser']
+        browser.save_screenshot(f'screenshots/{test_name}.png')
