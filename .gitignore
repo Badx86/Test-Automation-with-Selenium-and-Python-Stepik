@@ -2,3 +2,4 @@
 .sonarlint/
 __pycache__/
 venv/
+screenshots/
